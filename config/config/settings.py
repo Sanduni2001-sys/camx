@@ -16,9 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =========================
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG') == 'True'
-
-ALLOWED_HOSTS = ['*']
+DEBUG = os.getenv('DEBUG','False')=='True' 
+ALLOWED_HOSTS = ["*"]
 
 
 # =========================
@@ -74,23 +73,15 @@ LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
 
-# =========================
-# SOCIAL ACCOUNT (Google)
-# =========================
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': os.getenv('GOOGLE_CLIENT_ID'),
-            'secret': os.getenv('GOOGLE_CLIENT_SECRET'),
-            'key': ''
-        },
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-        'OAUTH_PKCE_ENABLED': True,
-    }
-}
-
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'APP': {
+#             'client_id': os.getenv('GOOGLE_CLIENT_ID'),
+#             'secret': os.getenv('GOOGLE_CLIENT_SECRET'),
+#             'key': ''
+#         }
+#     }
+# }
 
 # =========================
 # MIDDLEWARE
