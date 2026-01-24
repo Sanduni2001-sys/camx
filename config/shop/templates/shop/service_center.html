@@ -1,0 +1,78 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Professional Services - CamX.lk{% endblock %}
+{% block extra_head %}
+<meta name="description" content="Professional camera repair, maintenance, and cleaning services in Sri Lanka. Book your service today!">
+<meta name="keywords" content="Camera Repair, Lens Cleaning, Camera Calibration, Professional Services, Sri Lanka">
+<link rel="stylesheet" href="{% static 'shop/css/service_center.css' %}">
+<link rel="stylesheet" href="{% static 'shop/css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="hero-service">
+    <div class="hero-content">
+        <h1>Professional Camera Services</h1>
+        <p>Reliable repair, maintenance, and cleaning services for all types of cameras in Sri Lanka</p>
+        <a href="#booking" class="cta-btn">Book a Service</a>
+    </div>
+</section>
+
+<!-- ================= SERVICES CARDS ================= -->
+<section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Camera Repair</h3>
+            <p>Expert repair services for DSLR, Mirrorless, and Action cameras.</p>
+        </div>
+        <div class="service-card">
+            <h3>Lens Cleaning</h3>
+            <p>Professional lens cleaning and maintenance to keep your shots crystal clear.</p>
+        </div>
+        <div class="service-card">
+            <h3>Camera Calibration</h3>
+            <p>Precision calibration services for all types of cameras and lenses.</p>
+        </div>
+        <div class="service-card">
+            <h3>Accessory Checkup</h3>
+            <p>Checkup and repair for flashes, tripods, microphones, and other accessories.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= BOOKING FORM ================= -->
+<section id="booking" class="service-form-section">
+    <h2>Book Your Service</h2>
+    <form method="POST" class="service-form">
+        {% csrf_token %}
+        <label for="service_name">Service Type</label>
+        <select name="service_name" id="service_name" required>
+            <option value="Camera Repair">Camera Repair</option>
+            <option value="Lens Cleaning">Lens Cleaning</option>
+            <option value="Camera Calibration">Camera Calibration</option>
+            <option value="Accessory Checkup">Accessory Checkup</option>
+        </select>
+
+        <label for="full_name">Full Name</label>
+        <input type="text" name="full_name" id="full_name" placeholder="Your Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="you@example.com" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone" id="phone" placeholder="071 123 4567" required>
+
+        <label for="preferred_date">Preferred Date</label>
+        <input type="date" name="preferred_date" id="preferred_date" required>
+
+        <label for="message">Message / Notes</label>
+        <textarea name="message" id="message" rows="4" placeholder="Any special instructions..."></textarea>
+
+        <button type="submit" class="submit-btn">Submit Request</button>
+    </form>
+</section>
+
+{% endblock %}

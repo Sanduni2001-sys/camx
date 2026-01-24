@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CamX.lk{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'shop/css/base.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="main-nav">
+    <div class="logo">
+        <a href="{% url 'home' %}"><img src="{% static 'shop/images/lgo1.png' %}" alt="CamX.lk"></a>
+    </div>
+
+    <a href="{% url 'home' %}" class="nav-link">Home</a>
+    <a href="{% url 'service_center' %}" class="nav-link">Service Center</a>
+    <a href="{% url 'view_cart' %}" class="nav-link">Cart 🛒</a>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="nav-link profile-btn">Profile</a>
+        <a href="{% url 'logout' %}" class="nav-link logout-btn">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="nav-link login-btn">Login</a>
+        <a href="{% url 'signup' %}" class="nav-link signup-btn">Sign Up</a>
+    {% endif %}
+</nav>
+
+{% block content %}{% endblock %}
+
+<footer>
+    <p>&copy; 2025 CamX.lk | All Rights Reserved</p>
+</footer>
+
+<script src="{% static 'shop/js/home.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

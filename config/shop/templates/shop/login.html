@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | CamX.lk</title>
+    <link rel="stylesheet" href="{% static 'shop/css/login.css' %}">
+</head>
+<body>
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <!-- Logo -->
+        <div class="login-header">
+            <img src="{% static 'shop/images/lgo1.png' %}" alt="CamX.lk">
+            <h2>Welcome Back</h2>
+            <p>Please login to your account</p>
+        </div>
+
+        <!-- Login Form -->
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username or Email" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+        </form>
+
+        <!-- Footer -->
+        <div class="login-footer">
+            <p>Don’t have an account?
+                <a href="{% url 'signup' %}">Sign Up</a>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

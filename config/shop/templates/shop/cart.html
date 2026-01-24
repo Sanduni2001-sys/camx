@@ -1,0 +1,107 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}Your Cart - CamX.lk{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'shop/css/cart.css' %}">
+<link rel="stylesheet" href="{% static 'shop/css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="cart-section">
+    <h2>Your Cart</h2>
+
+    <!-- ===== PRODUCT CART ===== -->
+    <div class="cart-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in product_cart_items %}
+                <tr>
+                    <td>
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="50" style="border-radius:6px; margin-right:8px;">
+                        {% else %}
+                            <img src="{% static 'shop/images/default-product.png' %}" alt="No Image" width="50" style="border-radius:6px; margin-right:8px;">
+                        {% endif %}
+                        {{ item.product.name }}
+                    </td>
+                    <td>Rs. {{ item.product.price }}</td>
+                    <td>
+                        <a href="{% url 'update_cart' item.id 'decrease' %}" class="qty-btn">-</a>
+                        <span class="qty">{{ item.quantity }}</span>
+                        <a href="{% url 'update_cart' item.id 'increase' %}" class="qty-btn">+</a>
+                    </td>
+                    <td>Rs. {{ item.total_price }}</td>
+                    <td>
+                        <a href="{% url 'update_cart' item.id 'remove' %}" class="remove-btn">Remove</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="empty-cart">Your cart is empty</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+            {% if product_cart_items %}
+            <tfoot>
+                <tr>
+                    <td colspan="3"><strong>Total</strong></td>
+                    <td colspan="2"><strong>Rs. {{ total }}</strong></td>
+                </tr>
+            </tfoot>
+            {% endif %}
+        </table>
+    </div>
+
+    <!-- ===== RENT CART ===== -->
+    <h2>Rent Cart</h2>
+    <div class="rent-cart-container">
+    <h3>Rent Items</h3>
+    {% if rent_cart_items %}
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price per Day</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in rent_cart_items %}
+            <tr>
+                <td>{{ item.rent_item.name }}</td>
+                <td>
+                    <a href="{% url 'update_rent_cart' item.id 'decrease' %}" class="qty-btn">-</a>
+                    <span class="qty">{{ item.quantity }}</span>
+                    <a href="{% url 'update_rent_cart' item.id 'increase' %}" class="qty-btn">+</a>
+                </td>
+                <td>Rs. {{ item.rent_item.price_per_day }}</td>
+                <td>Rs. {{ item.total_price }}</td>
+                <td>
+                    <a href="{% url 'update_rent_cart' item.id 'remove' %}" class="remove-btn">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="empty-cart">No rent items in your cart</p>
+    {% endif %}
+</div>
+
+    <a href="{% url 'home' %}" class="back-home">🏠 Back to Home</a>
+</section>
+{% endblock %}

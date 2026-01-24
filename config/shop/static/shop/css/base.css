@@ -1,0 +1,261 @@
+/* ===== GENERAL ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 40px;
+    background: #f0f2f4;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.service-btn {
+    background: #FF4C29;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.live-search-wrapper {
+    position: relative;
+}
+
+#live-search-input {
+    padding: 8px 12px;
+    width: 260px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#live-search-results {
+    position: absolute;
+    top: 42px;
+    width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 999;
+}
+
+.search-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-item:hover {
+    background: #f5f5f5;
+}
+
+.search-item img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+
+/* ===== CART ICON ===== */
+.cart-icon {
+    position: relative;
+    font-size: 1.2rem;
+    color: #082346; /* navbar dark theme වෙනස් කරන්න */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.cart-icon span {
+    margin-left: 5px;
+}
+
+/* Badge for cart item count */
+.cart-icon::after {
+    content: attr(data-count); /* number of items in cart */
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #FF4C29;
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect */
+.cart-icon:hover {
+    color: #FF4C29;
+    transition: color 0.3s;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .cart-icon {
+        font-size: 1rem;
+    }
+
+    .cart-icon::after {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+}
+.auth-buttons a {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.auth-buttons .login-btn {
+    background-color: #1B98E0;
+    color: white;
+}
+
+.auth-buttons .signup-btn {
+    background-color: #FF4C29;
+    color: white;
+}
+
+.auth-buttons a:hover {
+    opacity: 0.85;
+}
+
+/* ===== SUB NAV ===== */
+.sub-nav {
+    background-color: #082346;
+    padding: 10px 20px;
+}
+
+.sub-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.sub-nav-links li {
+    position: relative;
+}
+
+.sub-nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+}
+
+.sub-nav-links li:hover > a {
+    background-color: #112A46;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #4070a3;
+    min-width: 180px;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.dropdown-content a {
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown > a::after {
+    content: " ▼";
+    font-size: 0.7em;
+    margin-left: 4px;
+}
+
+.footer {
+    background-color: #0D1B2A;
+    color: #E9F1FA;
+    padding: 40px 20px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1 1 250px;
+}
+
+.footer-logo {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.footer-section p {
+    margin-left: 10px;
+}
+
+.footer-section ul li {
+    margin-bottom: 6px;
+}
+
+.footer-section ul li a {
+    color: #E9F1FA;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #1B98E0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #171717;
+    padding-top: 10px;
+}

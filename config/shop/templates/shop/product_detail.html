@@ -1,0 +1,29 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} - CamX.lk{% endblock %}
+
+{% block extra_head %}
+<style>
+.product-detail img {
+    max-width: 400px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+.product-detail {
+    text-align: center;
+    margin-top: 30px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+    <h1>{{ product.name }}</h1>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <p>Price: LKR {{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <a href="{% url 'home' %}">Back to Home</a>
+</div>
+{% endblock %}

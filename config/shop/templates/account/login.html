@@ -1,0 +1,64 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'shop/css/login.css' %}">
+
+<div class="entrance">
+
+    <h1>{% trans "Sign In" %}</h1>
+
+    {% if not SOCIALACCOUNT_ONLY %}
+        {% setvar link %}
+            <a href="{{ signup_url }}">
+        {% endsetvar %}
+        {% setvar end_link %}
+            </a>
+        {% endsetvar %}
+        <p>
+            {% blocktranslate %}If you don't have an account, please {{ link }}sign up{{ end_link }} first.{% endblocktranslate %}
+        </p>
+
+        {% url 'account_login' as login_url %}
+        <form method="post" action="{{ login_url }}">
+            {% csrf_token %}
+            {% element fields form=form unlabeled=True %}
+            {% endelement %}
+            
+            {{ redirect_field }}
+
+            <button type="submit">{% trans "Sign In" %}</button>
+        </form>
+    {% endif %}
+
+    {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
+        <hr>
+        <div class="button-group">
+            {% if PASSKEY_LOGIN_ENABLED %}
+                <button type="submit" form="mfa_login" id="passkey_login">{% trans "Sign in with a passkey" %}</button>
+            {% endif %}
+            {% if LOGIN_BY_CODE_ENABLED %}
+                <button href="{{ request_login_code_url }}">{% trans "Send me a sign-in code" %}</button>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if SOCIALACCOUNT_ENABLED %}
+        <div class="socialaccount-buttons">
+            {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+        </div>
+    {% endif %}
+
+</div>
+{% endblock content %}
+
+{% block extra_body %}
+    {{ block.super }}
+    {% if PASSKEY_LOGIN_ENABLED %}
+        {% include "mfa/webauthn/snippets/login_script.html" with button_id="passkey_login" %}
+    {% endif %}
+{% endblock %}

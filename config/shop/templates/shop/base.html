@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CamX.lk{% endblock %}</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="{% static 'shop/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/auth.css' %}">
+    <link rel="icon" href="{% static 'shop/images/favicon.ico' %}">
+    
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- ===== NAV BAR ===== -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="{% static 'shop/images/lgo1.png' %}" alt="CamX.lk Logo">
+            </div>
+
+            <button class="service-btn" onclick="window.location.href='{% url 'service_center' %}'">Service Center</button>
+            
+    <div class="live-search-wrapper">
+        <input type="text" id="live-search-input" placeholder="Search cameras, lenses..." autocomplete="off">
+        <div id="live-search-results"></div>
+    </div>
+
+
+
+            <div class="auth-buttons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="profile-btn">👤 {{ user.username }}</a>
+                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="login-btn">Login</a>
+                <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
+            {% endif %}
+            </div>
+        </nav>
+
+        <nav class="sub-nav">
+    <ul class="sub-nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li class="dropdown">
+            <a href="#">Cameras </a>
+            <div class="dropdown-content">
+                <a href="#">DSLR Cameras</a>
+                <a href="#">Mirrorless Cameras</a>
+                <a href="#">Canon/Nikon</a>
+                <a href="#">Sony/Fujifilm/Panasonic</a>
+                <a href="#">Action Cameras</a>
+                <a href="#">GoPro/DJ Action</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Lenses </a>
+            <div class="dropdown-content">
+                <a href="#">Canon EF/EF-S</a>
+                <a href="#">Canon RF</a>
+                <a href="#">Nikon F Mount</a>
+                <a href="#">Sony E Mount</a>
+                <a href="#">Fujifilm XF/XC</a>
+                <a href="#">Sigma/Tamron/Tokina Third Party Lenses</a>
+                <a href="#">Cine Lenses</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Accessories</a>
+            <div class="dropdown-content">
+                <a href="#">Memory Cards (SD/CF express)</a>
+                <a href="#">Camera Batteries & Chargers</a>
+                <a href="#">Lens Filters(UV/ND/CPL)</a>
+                <a href="#">Tripods/Monopods/Gimbals</a>
+                <a href="#">External Flash/Speedlights</a>
+                <a href="#">Microphones(Rode/Boya etc)</a>
+                <a href="#">Camera Bags/& Straps</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Studio Items</a>
+            <div class="dropdown-content">
+                <a href="#">Studio Lights</a>
+                <a href="#">Backdrops</a>
+                <a href="#">Softboxes/Light Stands</a>
+                <a href="#">Audio Interfaces</a>
+                <a href="#">Capture Cards(Elgato etc.)</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#">Extra Services</a>
+            <div class="dropdown-content">
+                <a href="#">Camera Service & Cleaning</a>
+                <a href="#">Buy Back/Trade-In</a>
+            </div>
+        </li>
+
+        <!-- ===== RENT BUTTON ===== -->
+        <li><a href="{% url 'rent' %}" class="rent-btn">Rental</a></li>
+    </ul>
+</nav>
+
+    </header>
+
+    <!-- ===== PAGE CONTENT ===== -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Brand / Logo -->
+        <div class="footer-section about">
+            <img src="{% static 'shop/images/lgo1.png' %}" alt="CamX.lk Logo" class="footer-logo">
+            <p>Your one-stop shop for cameras & accessories in Sri Lanka.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'service_center' %}">Service Center</a></li>
+                <li><a href="#">Cameras</a></li>
+                <li><a href="#">Lenses</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact / Map -->
+        <div class="footer-section contact">
+            <h4>Contact Us</h4>
+            <p>📞 0719421978</p>
+            <p>📧 info@camx.lk</p>
+            <p>📍 Colombo, Sri Lanka</p>
+
+<div class="map">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3960.2938978702905!2d79.9199630748101!3d6.974610393026125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwNTgnMjguNiJOIDc5wrA1NScyMS4xIkU!5e0!3m2!1sen!2sus!4v1768542470287!5m2!1sen!2sus"
+        width="250"
+        height="150"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+        </div>
+    </div>
+<div class="footer-bottom">
+    <p>&copy; 2025 CamX.lk | All Rights Reserved</p>
+</div>
+    <script src="{% static 'shop/js/home.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
