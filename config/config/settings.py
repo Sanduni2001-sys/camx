@@ -14,11 +14,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =========================
 # SECURITY
 # =========================
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', 'unsafe-dev-key')
 
 DEBUG = os.getenv('DEBUG','False')=='True' 
 ALLOWED_HOSTS = [
-    "camx-9h8.onrender.com",
+    "camx-g9h8.onrender.com",
     ".onrender.com",
 ]
 
@@ -73,8 +73,11 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/login/'
+LOGIN_URL = '/accounts/login/'
 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 # SOCIALACCOUNT_PROVIDERS = {
 #     'google': {
@@ -182,6 +185,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'shop' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # =========================
@@ -221,3 +226,8 @@ MESSAGE_TAGS = {
 # DEFAULT PK
 # =========================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://camx-g9h8.onrender.com",
+]
