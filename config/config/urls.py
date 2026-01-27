@@ -17,14 +17,18 @@ Including another URLconf
 
 
 from django.contrib import admin
+from shop.views import home  
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", home, name="home"), 
     path('', include('shop.urls')),
     path('accounts/', include('allauth.urls')),
+    
 ]
 
 if settings.DEBUG:
