@@ -23,6 +23,8 @@ ALLOWED_HOSTS = [
 ]
 
 
+
+
 # =========================
 # APPLICATIONS
 # =========================
@@ -231,3 +233,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     "https://camx-g9h8.onrender.com",
 ]
+
+CREATE_SUPERUSER = os.environ.get("CREATE_SUPERUSER", "false") == "true"
