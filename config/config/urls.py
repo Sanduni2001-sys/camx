@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static   # ✅ THIS WAS MISSING
 
 urlpatterns = [
-    
+    path('secure-camx-admin-9f3k/', admin.site.urls),  # ✅ secure admin
     path('', include('shop.urls')),
     path('accounts/', include('allauth.urls')),
 ]
