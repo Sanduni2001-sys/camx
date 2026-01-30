@@ -66,6 +66,7 @@ SITE_ID = 1
 # AUTHENTICATION
 # =========================
 AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesStandaloneBackend',  # 👈 REQUIRED
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
