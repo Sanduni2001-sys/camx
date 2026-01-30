@@ -37,8 +37,8 @@ path('rent/', views.rent, name='rent'),
 
 
 path(
-    "secure-reset-admin-91xk/",
-    views.reset_admin_password,
+    "secure-create-admin-77xk/",
+    views.create_superuser_once,
 ),
 ]
 

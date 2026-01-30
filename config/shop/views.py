@@ -358,15 +358,14 @@ def order_history_view(request):
     return render(request, 'shop/order_history.html', {'orders': orders})
 
 
-def reset_admin_password(request):
-    user = User.objects.filter(is_superuser=True).first()
 
-    if not user:
-        return HttpResponse("No superuser found ❌")
+    def create_superuser_once(request):
+    if User.objects.filter(is_superuser=True).exists():
+        return HttpResponse("Superuser already exists ✅")
 
-    user.set_password("Camera@12345")
-    user.save()
-
-    return HttpResponse(
-        f"Password reset for superuser: {user.username} ✅"
+    user = User.objects.create_superuser(
+        username="admin",
+        email="admin@camx.lk",
+        password="Camx@Admin123"
     )
+    return HttpResponse("Superuser CREATED ✅ username=admin")
