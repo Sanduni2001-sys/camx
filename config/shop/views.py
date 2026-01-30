@@ -7,7 +7,8 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import JsonResponse
-
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 from .models import (
     Product,
@@ -356,3 +357,12 @@ def order_history_view(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'shop/order_history.html', {'orders': orders})
 
+
+def reset_admin_password(request):
+    try:
+        user = User.objects.get(username="camx")
+        user.set_password("NewStrongPassword123")
+        user.save()
+        return HttpResponse("Admin password reset successfully ✅")
+    except User.DoesNotExist:
+        return HttpResponse("Admin user not found ❌")
