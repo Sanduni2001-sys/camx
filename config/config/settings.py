@@ -1,8 +1,9 @@
-from pathlib import Path
+
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load .env file
+# Load .env (local dev only – Render uses env vars automatically)
 load_dotenv()
 
 # =========================
@@ -10,18 +11,26 @@ load_dotenv()
 # =========================
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # =========================
 # SECURITY
 # =========================
-SECRET_KEY = os.getenv('SECRET_KEY', 'unsafe-dev-key')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = os.getenv('DEBUG','False')=='True' 
+if not SECRET_KEY:
+    raise Exception("SECRET_KEY not set in environment variables")
+# DEBUG
+# =========================
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+
+# =========================
+# ALLOWED HOSTS
+# =========================
 ALLOWED_HOSTS = [
     "camx-g9h8.onrender.com",
     ".onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
-
 
 
 
@@ -43,6 +52,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
+# 🔐 SECURITY
+    'axes',
+    
     # your app
     'shop.apps.ShopConfig',
 ]
@@ -106,6 +118,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'allauth.account.middleware.AccountMiddleware',
+    
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # 🔐 AXES (brute-force protection)
+    'axes.middleware.AxesMiddleware',
+
 ]
 
 
@@ -181,15 +206,16 @@ USE_I18N = True
 USE_TZ = True
 
 
-# =========================
 # STATIC FILES
-# =========================
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'shop' / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = "/static/"
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # =========================
 # MEDIA FILES
@@ -234,4 +260,12 @@ CSRF_TRUSTED_ORIGINS = [
     "https://camx-g9h8.onrender.com",
 ]
 
-CREATE_SUPERUSER = os.environ.get("CREATE_SUPERUSER", "false") == "true"
+# ======================
+# AXES SECURITY
+# ======================
+
+AXES_FAILURE_LIMIT = 5          # 5 wrong attempts
+AXES_COOLOFF_TIME = 1           # 1 hour lock
+AXES_LOCK_OUT_AT_FAILURE = True
+AXES_RESET_ON_SUCCESS = True
+

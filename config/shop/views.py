@@ -356,16 +356,3 @@ def order_history_view(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'shop/order_history.html', {'orders': orders})
 
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-
-def create_admin_temp(request):
-    if User.objects.filter(username="admin").exists():
-        return HttpResponse("Admin already exists")
-
-    User.objects.create_superuser(
-        username="admin",
-        email="admin@camx.lk",
-        password="Admin@123"
-    )
-    return HttpResponse("Superuser created ✅")

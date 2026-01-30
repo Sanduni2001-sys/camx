@@ -35,7 +35,7 @@ urlpatterns = [
     # ✅ Rent page
 path('rent/', views.rent, name='rent'),
 
-path('create-admin/', views.create_admin_temp),
+
 
 
 ]
