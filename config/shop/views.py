@@ -359,10 +359,14 @@ def order_history_view(request):
 
 
 def reset_admin_password(request):
-    try:
-        user = User.objects.get(username="camx")
-        user.set_password("NewStrongPassword123")
-        user.save()
-        return HttpResponse("Admin password reset successfully ✅")
-    except User.DoesNotExist:
-        return HttpResponse("Admin user not found ❌")
+    user = User.objects.filter(is_superuser=True).first()
+
+    if not user:
+        return HttpResponse("No superuser found ❌")
+
+    user.set_password("Camera@12345")
+    user.save()
+
+    return HttpResponse(
+        f"Password reset for superuser: {user.username} ✅"
+    )
