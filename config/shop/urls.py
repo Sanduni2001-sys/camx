@@ -36,10 +36,8 @@ urlpatterns = [
 path('rent/', views.rent, name='rent'),
 
 
-path(
-    "secure-create-admin-77xk/",
-    views.create_superuser_once,
-),
+path('force-admin-88kk/', views.force_create_admin),
+
 ]
 
 
