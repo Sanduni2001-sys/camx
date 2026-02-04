@@ -361,13 +361,13 @@ def force_create_admin(request):
     user, created = User.objects.get_or_create(
         username="camx",
         defaults={
-            "email": "admin@camx.lk",
+            "email": "nimeshiSandu8@gmail.com",
             "is_staff": True,
             "is_superuser": True,
         }
     )
 
-    user.set_password("Camera@123")
+    user.set_password("Sandu123@")
     user.is_staff = True
     user.is_superuser = True
     user.save()
