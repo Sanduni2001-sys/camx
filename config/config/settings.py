@@ -261,6 +261,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://camx-g9h8.onrender.com",
 ]
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 # ======================
 # AXES SECURITY
 # ======================
