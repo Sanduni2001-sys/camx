@@ -357,15 +357,13 @@ def order_history_view(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'shop/order_history.html', {'orders': orders})
 
-
-
-    def create_superuser_once(request):
+def create_superuser_once(request):
     if User.objects.filter(is_superuser=True).exists():
         return HttpResponse("Superuser already exists ✅")
 
-    user = User.objects.create_superuser(
+    User.objects.create_superuser(
         username="admin",
         email="admin@camx.lk",
         password="Camx@Admin123"
     )
-    return HttpResponse("Superuser CREATED ✅ username=admin")
+    return HttpResponse("Superuser CREATED ✅")
