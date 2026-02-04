@@ -26,10 +26,12 @@ DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 # ALLOWED HOSTS
 # =========================
 ALLOWED_HOSTS = [
+    "camxlk.com",
+    "www.camxlk.com",
     "camx-g9h8.onrender.com",
     ".onrender.com",
     "localhost",
-    "127.0.0.1",
+    "127.0.0.1"
 ]
 
 
