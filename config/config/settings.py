@@ -96,15 +96,13 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'APP': {
-#             'client_id': os.getenv('GOOGLE_CLIENT_ID'),
-#             'secret': os.getenv('GOOGLE_CLIENT_SECRET'),
-#             'key': ''
-#         }
-#     }
-# }
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': os.getenv('GOOGLE_CLIENT_ID'),            'secret': os.getenv('GOOGLE_CLIENT_SECRET'),
+            'key': ''
+        }     }
+}
 
 # =========================
 # MIDDLEWARE
