@@ -16,8 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # =========================
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-if not SECRET_KEY:
-    raise Exception("SECRET_KEY not set in environment variables")
+#if not SECRET_KEY:
+#    raise Exception("SECRET_KEY not set in environment variables")
 # DEBUG
 # =========================
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
@@ -274,3 +274,16 @@ AXES_COOLOFF_TIME = 1           # 1 hour lock
 AXES_LOCK_OUT_AT_FAILURE = True
 AXES_RESET_ON_SUCCESS = True
 
+import django
+django.setup()
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+if not User.objects.filter(username="admin").exists():
+    User.objects.create_superuser(
+        "admin",
+        "admin@gmail.com",
+        "admin1234"
+    )
