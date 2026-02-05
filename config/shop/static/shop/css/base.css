@@ -259,3 +259,14 @@
     border-top: 1px solid #171717;
     padding-top: 10px;
 }
+
+/* NAVBAR PROFILE AVATAR */
+
+.nav-avatar{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #0d6efd;
+    cursor:pointer;
+}

@@ -31,15 +31,23 @@
 
 
 
-            <div class="auth-buttons">
-            {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}" class="profile-btn">👤 {{ user.username }}</a>
-                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
-            {% else %}
-                <a href="{% url 'login' %}" class="login-btn">Login</a>
-                <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
-            {% endif %}
-            </div>
+        <div class="auth-buttons">
+
+{% if user.is_authenticated %}
+
+<a href="{% url 'profile' %}">
+    <img src="{{ user.profile.profile_image.url }}"
+            onerror="this.src='{% static 'shop/images/default.png' %}'"
+            class="nav-avatar">
+</a>
+
+{% else %}
+
+<a href="{% url 'login' %}">Login</a>
+
+{% endif %}
+
+</div>   
         </nav>
 
         <nav class="sub-nav">
