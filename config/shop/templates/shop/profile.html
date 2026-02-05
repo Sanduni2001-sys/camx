@@ -10,67 +10,67 @@
 {% block content %}
 <section class="profile-section">
 
-<div class="profile-container">
+<div class="container mt-5">
+    <div class="row">
 
-    <!-- ===== Left Sidebar ===== -->
-    <div class="profile-sidebar">
-        <div class="profile-picture">
-            {% if user.profile.profile_image %}
-                <img src="{{ user.profile.profile_image.url }}" alt="Profile Picture">
-            {% else %}
-                <img src="{% static 'shop/images/default-profile.png' %}" alt="Profile Picture">
-            {% endif %}
+    <!-- LEFT PANEL -->
+    <div class="col-md-3">
+        <div class="card text-center p-3">
+
+        <img src="{{ user.profile.profile_image.url }}"
+        class="rounded-circle mx-auto"
+        width="120" height="120">
+
+        <h5 class="mt-2">{{ user.username }}</h5>
+        <small>{{ user.email }}</small>
+
+        <hr>
+
+        <a href="#" class="d-block mb-2">My Profile</a>
+        <a href="#" class="d-block mb-2">Orders</a>
+        <a href="#" class="d-block mb-2">My Cart</a>
+        <a href="{% url 'logout' %}" class="d-block text-danger">Logout</a>
+
         </div>
-
-        <h3>{{ user.username }}</h3>
-        <p>{{ user.email }}</p>
-
-        <ul class="profile-links">
-            <li><a href="{% url 'profile' %}">My Profile</a></li>
-            <li><a href="{% url 'order_history' %}">Orders</a></li>
-            <li><a href="{% url 'view_cart' %}">My Cart</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
     </div>
 
-    <!-- ===== Right Content ===== -->
-    <div class="profile-content">
-        <h2>Profile Information</h2>
-        <div class="profile-info">
-            <p><strong>Username:</strong> {{ user.username }}</p>
-            <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>First Name:</strong> {{ user.first_name }}</p>
-            <p><strong>Last Name:</strong> {{ user.last_name }}</p>
-        </div>
+    <!-- RIGHT PANEL -->
+    <div class="col-md-9">
+        <div class="card p-4">
 
-        <h2>Update Profile</h2>
-        <form method="POST" action="{% url 'update_profile' %}" enctype="multipart/form-data">
+        <h4>Profile Information</h4>
+
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="text" name="first_name" value="{{ user.first_name }}" id="first_name">
+
+        <div class="mb-3">
+            <label>First Name</label>
+            {{ form.first_name }}
             </div>
 
-            <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" name="last_name" value="{{ user.last_name }}" id="last_name">
+        <div class="mb-3">
+            <label>Last Name</label>
+            {{ form.last_name }}
+        </div>
+
+            <div class="mb-3">
+            <label>Email</label>
+            {{ form.email }}
             </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" value="{{ user.email }}" id="email">
-            </div>
-
-            <div class="form-group">
-                <label for="profile_image">Profile Picture</label>
-                <input type="file" name="profile_image" id="profile_image">
-            </div>
-
-            <button type="submit" class="btn-update">Update Profile</button>
-        </form>
+    <div class="mb-3">
+            <label>Profile Picture</label>
+            {{ form.profile_image }}
     </div>
 
+    <button class="btn btn-primary">Update Profile</button>
+
+        </form>
+
+    </div>
+    </div>
+
+    </div>
 </div>
 </section>
 {% endblock %}
