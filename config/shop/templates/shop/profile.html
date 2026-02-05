@@ -1,76 +1,53 @@
-{% extends 'shop/base.html' %}
+{% extends "shop/base.html" %}
 {% load static %}
 
-{% block title %}Profile{% endblock %}
-
-{% block extra_head %}
-<link rel="stylesheet" href="{% static 'shop/css/profile.css' %}">
-{% endblock %}
-
 {% block content %}
-<section class="profile-section">
 
-<div class="container mt-5">
-    <div class="row">
+<link rel="stylesheet" href="{% static 'shop/css/profile.css' %}">
 
-    <!-- LEFT PANEL -->
-    <div class="col-md-3">
-        <div class="card text-center p-3">
+<div class="profile-wrapper">
 
-        <img src="{{ user.profile.profile_image.url }}"
-        class="rounded-circle mx-auto"
-        width="120" height="120">
+    <!-- LEFT CARD -->
+    <div class="profile-sidebar">
 
-        <h5 class="mt-2">{{ user.username }}</h5>
-        <small>{{ user.email }}</small>
+        <img src="{{ user.profile.profile_image.url }}" class="profile-avatar">
 
-        <hr>
+        <h3>{{ user.username }}</h3>
+        <p>{{ user.email }}</p>
 
-        <a href="#" class="d-block mb-2">My Profile</a>
-        <a href="#" class="d-block mb-2">Orders</a>
-        <a href="#" class="d-block mb-2">My Cart</a>
-        <a href="{% url 'logout' %}" class="d-block text-danger">Logout</a>
+        <a href="{% url 'profile' %}">My Profile</a>
+        <a href="{% url 'order_history' %}">Orders</a>
+        <a href="{% url 'view_cart' %}">My Cart</a>
+        <a href="{% url 'logout' %}">Logout</a>
 
-        </div>
     </div>
 
-    <!-- RIGHT PANEL -->
-    <div class="col-md-9">
-        <div class="card p-4">
+    <!-- RIGHT CONTENT -->
+    <div class="profile-main">
 
-        <h4>Profile Information</h4>
+        <h2>Profile Information</h2>
 
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
-        <div class="mb-3">
             <label>First Name</label>
-            {{ form.first_name }}
-            </div>
+            <input type="text" name="first_name" value="{{ user.first_name }}">
 
-        <div class="mb-3">
             <label>Last Name</label>
-            {{ form.last_name }}
-        </div>
+            <input type="text" name="last_name" value="{{ user.last_name }}">
 
-            <div class="mb-3">
             <label>Email</label>
-            {{ form.email }}
-            </div>
+            <input type="email" value="{{ user.email }}" disabled>
 
-    <div class="mb-3">
             <label>Profile Picture</label>
-            {{ form.profile_image }}
-    </div>
+            <input type="file" name="profile_image">
 
-    <button class="btn btn-primary">Update Profile</button>
+            <button type="submit">Update Profile</button>
 
         </form>
 
     </div>
-    </div>
 
-    </div>
 </div>
-</section>
+
 {% endblock %}
