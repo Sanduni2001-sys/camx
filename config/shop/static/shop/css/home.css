@@ -256,7 +256,7 @@ body {
     transform: translateY(-50%);
     z-index: 3;
     max-width: 520px;
-    background: rgb(243, 243, 245);
+    
 }
 
 .hero-content h1 {
@@ -510,3 +510,4 @@ body {
 }
 
 }
+
