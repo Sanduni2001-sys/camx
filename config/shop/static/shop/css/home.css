@@ -225,8 +225,8 @@ body {
     inset: 0;
     background: linear-gradient(
         to right,
-        rgba(10,26,47,0.85),
-        rgba(10,26,47,0.3)
+        rgba(240, 241, 242, 0.85),
+        rgba(242, 243, 244, 0.907)
     );
     z-index: 2;
 }
