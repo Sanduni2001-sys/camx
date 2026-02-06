@@ -410,3 +410,102 @@ body {
     border:2px solid #0d6efd;
     cursor:pointer;
 }
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px){
+
+/* NAV */
+
+.main-nav{
+    flex-direction: column;
+    gap:10px;
+    padding:10px;
+}
+
+.logo img{
+    height:32px;
+}
+
+.service-btn{
+    width:100%;
+    margin:0;
+    text-align:center;
+}
+
+.live-search-wrapper{
+    width:100%;
+}
+
+#live-search-input{
+    width:100%;
+}
+
+/* SUB NAV */
+
+.sub-nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.sub-nav-links a{
+    font-size:13px;
+    padding:6px;
+}
+
+/* HERO */
+
+.hero-section{
+    height:300px;
+}
+
+.hero-content{
+    left:5%;
+    right:5%;
+    max-width:100%;
+    background:rgba(0,0,0,.5);
+    padding:15px;
+    border-radius:10px;
+}
+
+.hero-content h1{
+    font-size:20px;
+    color:white;
+}
+
+.hero-content p{
+    font-size:12px;
+    color:white;
+}
+
+.cta-btn{
+    font-size:13px;
+    padding:8px 14px;
+}
+
+/* PRODUCTS */
+
+.products{
+    padding:40px 15px;
+}
+
+.product-card img{
+    height:160px;
+}
+
+/* FOOTER */
+
+.footer-container{
+    flex-direction:column;
+    text-align:center;
+}
+
+/* FLOAT CALL BTN */
+
+.contact-number{
+    bottom:10px;
+    right:10px;
+    font-size:12px;
+    padding:8px 14px;
+}
+
+}
