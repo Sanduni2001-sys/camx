@@ -1,10 +1,21 @@
 /* ===== GENERAL ===== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", Arial, sans-serif;
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
+
+img{
+max-width:100%;
+height:auto;
+}
+
+body{
+font-family:Poppins,Arial,sans-serif;
+background:#f4f4f4;
+}
+
 
 /* ===== NAVBAR ===== */
 .main-nav {
