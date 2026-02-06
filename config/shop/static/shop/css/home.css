@@ -225,8 +225,8 @@ body {
     inset: 0;
     background: linear-gradient(
         to right,
-        rgba(240, 241, 242, 0.85),
-        rgba(242, 243, 244, 0.907)
+        rgba(26, 29, 31, 0.85),
+        rgba(30, 32, 33, 0.907)
     );
     z-index: 2;
 }
@@ -256,6 +256,7 @@ body {
     transform: translateY(-50%);
     z-index: 3;
     max-width: 520px;
+    background: rgb(243, 243, 245);
 }
 
 .hero-content h1 {
