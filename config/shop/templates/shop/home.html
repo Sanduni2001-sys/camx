@@ -33,7 +33,7 @@
 
     <div id="live-search-results"></div>
 </div>
-{% if user.is_authenticated %}
+        {% if user.is_authenticated %}
     <!-- Cart -->
     <div class="cart-wrapper">
         <a href="{% url 'view_cart' %}" class="cart-icon">
@@ -73,7 +73,7 @@
 
     <div class="auth-buttons">
 
-{% if user.is_authenticated %}
+
 
 <a href="{% url 'profile' %}">
     <img src="{{ user.profile.profile_image.url }}"
@@ -146,6 +146,7 @@
         <!-- ===== RENT BUTTON ===== -->
         <li><a href="{% url 'rent' %}" class="rent-btn">Rental</a></li>
     </ul>
+    
 </nav>
 
 <!-- ================= HERO SECTION ================= -->
