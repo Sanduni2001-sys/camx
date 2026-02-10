@@ -441,22 +441,6 @@ body {
     width:100%;
 }
 
-/* SUB NAV */
-
-.sub-nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.sub-nav-links a{
-    font-size:13px;
-    padding:6px;
-}
-
-/* MOBILE LOGIN BUTTON */
-
-@media(max-width:768px){
-
 .auth-buttons a{
     display:block;
     text-align:center;
@@ -469,7 +453,21 @@ body {
     width:100%;
 }
 
+/* SUB NAV */
+
+.sub-nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
 }
+
+.sub-nav-links a{
+    font-size:13px;
+    padding:6px;
+}
+
+
+
+
 /* HERO */
 
 .hero-section{
