@@ -511,3 +511,52 @@ body {
 
 }
 
+
+/* ================= PREMIUM MOBILE TOUCH ================= */
+@media (max-width:768px){
+
+/* NAV glass effect */
+.main-nav{
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid #ddd;
+}
+
+/* hero animation */
+.hero-content{
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+    animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:none;}
+}
+
+/* product cards */
+.product-card{
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+}
+
+/* CTA button glow */
+.cta-btn{
+    box-shadow:0 6px 20px rgba(27,152,224,.6);
+}
+
+/* call button modern */
+.contact-number{
+    background:#0d6efd;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+/* menu spacing */
+.sub-nav-links{
+    row-gap:10px;
+}
+
+/* search smooth */
+#live-search-input{
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+}
