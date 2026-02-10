@@ -453,6 +453,23 @@ body {
     padding:6px;
 }
 
+/* MOBILE LOGIN BUTTON */
+
+@media(max-width:768px){
+
+.auth-buttons a{
+    display:block;
+    text-align:center;
+    background:#0d6efd;
+    color:white !important;
+    padding:10px;
+    border-radius:8px;
+    font-weight:600;
+    text-decoration:none;
+    width:100%;
+}
+
+}
 /* HERO */
 
 .hero-section{
