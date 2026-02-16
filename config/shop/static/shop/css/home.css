@@ -464,20 +464,25 @@ body {
     font-size:13px;
     padding:6px;
 }
-
-
-
-
 .dropdown-content{
     position: static;
-    display: block;
+    display: block;   /* 🔥 CHANGE */
     background:#0a2645;
     box-shadow:none;
+}
+
+.dropdown > a{
+    font-weight:600;
 }
 
 .dropdown-content a{
     padding-left:20px;
 }
+
+
+
+
+
 
 
 
@@ -587,4 +592,7 @@ to{opacity:1;transform:none;}
     box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
+
 }
+
+
