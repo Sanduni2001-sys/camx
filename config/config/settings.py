@@ -14,6 +14,9 @@ ALLOWED_HOSTS = [
     "camxlk.com",
     "www.camxlk.com",
     "camx-g9h8.onrender.com",
+    ".onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 INSTALLED_APPS = [
@@ -116,23 +119,13 @@ CSRF_TRUSTED_ORIGINS = [
     "https://camx-g9h8.onrender.com",
 ]
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-
-AXES_FAILURE_LIMIT = 5
-AXES_COOLOFF_TIME = 1
-AXES_LOCK_OUT_AT_FAILURE = True
-AXES_RESET_ON_SUCCESS = True
-
-# ================= EMAIL =================
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-ADMIN_EMAIL = EMAIL_HOST_USER
+ADMIN_EMAIL = EMAIL_HOST_USER or "nimeshisandu8@gmail.com"
