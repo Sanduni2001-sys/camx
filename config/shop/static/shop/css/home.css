@@ -468,6 +468,19 @@ body {
 
 
 
+.dropdown-content{
+    position: static;
+    display: block;
+    background:#0a2645;
+    box-shadow:none;
+}
+
+.dropdown-content a{
+    padding-left:20px;
+}
+
+
+
 /* HERO */
 
 .hero-section{
