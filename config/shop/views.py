@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -93,12 +92,12 @@ CamX.lk Admin Panel
         """
         try:
             send_mail(
-                subject=email_subject,
-                message=email_message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.ADMIN_EMAIL],
-                fail_silently=False
-            )
+    subject=email_subject,
+    message=email_message,
+    from_email=settings.DEFAULT_FROM_EMAIL,
+    recipient_list=[settings.EMAIL_HOST_USER],
+    fail_silently=False
+)
         except Exception as e:
             print("Email send failed:", e)
 

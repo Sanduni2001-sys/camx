@@ -39,5 +39,3 @@ path('rent/', views.rent, name='rent'),
 path('force-admin-88kk/', views.force_create_admin),
 
 ]
-
-
