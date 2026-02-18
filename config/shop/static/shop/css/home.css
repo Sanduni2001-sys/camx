@@ -261,9 +261,10 @@ body {
     
 }
 
-.hero-content h1 {
+.hero-content h1,
+.hero-content p {
     font-size: 48px;
-    
+    color:#fff
 }
 
 .cta-btn {
