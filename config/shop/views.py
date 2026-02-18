@@ -48,11 +48,6 @@ def home(request):
     })
 # ================= SERVICE CENTER =================
 def service_center(request):
-    meta = {
-        'title': "Professional Camera Service - CamX.lk",
-        'description': "Book professional camera repair, cleaning, and maintenance services in Sri Lanka.",
-        'keywords': "Camera repair Sri Lanka, DSLR service, Camera cleaning, CamX.lk"
-    }
 
     if request.method == "POST":
         service_name = request.POST.get("service_name")
@@ -62,7 +57,6 @@ def service_center(request):
         preferred_date = request.POST.get("preferred_date")
         message_text = request.POST.get("message")
 
-        # ================= SAVE TO DATABASE =================
         ServiceRequest.objects.create(
             user=request.user if request.user.is_authenticated else None,
             service_name=service_name,
@@ -73,71 +67,31 @@ def service_center(request):
             message=message_text
         )
 
-        # ================= SEND EMAIL =================
-        email_subject = f"🔧 New Service Request - {service_name}"
+        email_subject = f"New Service Request - {service_name}"
         email_message = f"""
-New Camera Service Request
+Service: {service_name}
+Name: {full_name}
+Email: {email}
+Phone: {phone}
+Date: {preferred_date}
 
-Service       : {service_name}
-Customer Name : {full_name}
-Email         : {email}
-Phone         : {phone}
-Preferred Date: {preferred_date}
-
-Message:
 {message_text}
+"""
 
----------------------------------
-CamX.lk Admin Panel
-        """
         try:
             send_mail(
-    subject=email_subject,
-    message=email_message,
-    from_email=settings.DEFAULT_FROM_EMAIL,
-    recipient_list=[settings.EMAIL_HOST_USER],
-    fail_silently=False
-)
+                email_subject,
+                email_message,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.EMAIL_HOST_USER],
+                fail_silently=False
+            )
         except Exception as e:
-            print("Email send failed:", e)
+            print("EMAIL ERROR:", e)
 
-        # ================= SEND WHATSAPP MESSAGE =================
-        try:
-            client = Client(
-                settings.TWILIO_ACCOUNT_SID,
-                settings.TWILIO_AUTH_TOKEN
-            )
-
-            whatsapp_message = (
-                f"📌 *New Service Request*\n\n"
-                f"Service: {service_name}\n"
-                f"Name: {full_name}\n"
-                f"Phone: {phone}\n"
-                f"Date: {preferred_date}\n"
-            )
-
-            message = client.messages.create(
-                body=whatsapp_message,
-                from_=settings.TWILIO_WHATSAPP_FROM,
-                to=settings.ADMIN_WHATSAPP_NUMBER
-            )
-
-            print("WHATSAPP SENT ✅ SID:", message.sid)
-        except Exception as e:
-            print("WhatsApp send failed:", e)
-
-        messages.success(
-            request,
-            "✅ Your service request has been submitted successfully. Our team will contact you soon."
-        )
         return redirect('service_center')
 
-    # GET request
-    return render(request, 'shop/service_center.html', {'meta': meta})
-
-
-
-
+    return render(request, 'shop/service_center.html')
 # ================= SEARCH =================
 
 def live_search(request):
