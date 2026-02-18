@@ -182,9 +182,9 @@ body {
     position: absolute;
     top: 100%; /* menu under parent */
     left: 0;
-    background-color: #4070a3;
+    background-color: #f6f7f9;
     min-width: 180px;
-    box-shadow: 0 4px 6px rgba(92, 121, 202, 0.2);
+    box-shadow: 0 4px 6px rgba(234, 235, 237, 0.889);
     border-radius: 5px;
     z-index: 100;
 }
@@ -217,6 +217,7 @@ body {
     position: relative;
     height: 90vh;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero-section::after {
@@ -246,6 +247,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: none;
 }
 
 /* HERO TEXT */
@@ -254,7 +256,7 @@ body {
     top: 50%;
     left: 8%;
     transform: translateY(-50%);
-    z-index: 3;
+    z-index: 5;
     max-width: 520px;
     
 }
