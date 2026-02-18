@@ -84,7 +84,7 @@ Date: {preferred_date}
                 email_message,
                 settings.DEFAULT_FROM_EMAIL,
                 [settings.EMAIL_HOST_USER],
-                fail_silently=False
+                fail_silently=True
             )
         except Exception as e:
             print("EMAIL ERROR:", e)
