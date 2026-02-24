@@ -102,8 +102,83 @@ body {
 }
 
 /* Mobile */
-@media (max-width: 480px) {
-    .login-card {
-        width: 90%;
-    }
+/* ================= MOBILE AUTH FIX ================= */
+
+@media (max-width:768px){
+
+.auth-section{
+    min-height:100vh;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.auth-container{
+    width:100%;
+    max-width:360px;
+    padding:25px 20px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.auth-header h2{
+    font-size:22px;
+}
+
+.auth-header p{
+    font-size:13px;
+}
+
+.signup-form input,
+.login-form input{
+    font-size:14px;
+    padding:12px;
+}
+
+.btn-primary{
+    width:100%;
+    padding:12px;
+    font-size:15px;
+}
+
+.social-login a{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px;
+}
+
+.social-login img{
+    width:20px;
+}
+
+.auth-divider{
+    margin:20px 0;
+}
+
+.password-group .toggle-password{
+    right:10px;
+    top:12px;
+}
+
+}
+
+/* Touch friendly */
+
+input,button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* smooth */
+
+.auth-container{
+    animation:fadeUp .4s ease;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(15px);}
+to{opacity:1;transform:none;}
 }
