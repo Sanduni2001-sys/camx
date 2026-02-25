@@ -311,18 +311,12 @@ def order_history_view(request):
     return render(request, 'shop/order_history.html', {'orders': orders})
 
 def force_create_admin(request):
-    user, created = User.objects.get_or_create(
-        username="camx",
-        defaults={
-            "email": "nimeshiSandu8@gmail.com",
-            "is_staff": True,
-            "is_superuser": True,
-        }
+    User.objects.filter(username="admin").delete()
+
+    User.objects.create_superuser(
+        username="admin",
+        email="admin@camxlk.com",
+        password="Camx@2026"
     )
 
-    user.set_password("Sandu123@")
-    user.is_staff = True
-    user.is_superuser = True
-    user.save()
-
-    return HttpResponse("ADMIN READY ✅")
+    return HttpResponse("ADMIN HARD RESET DONE")
