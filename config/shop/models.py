@@ -21,6 +21,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('product_detail', args=[self.id])
 
 # ===== CART =====
 class CartItem(models.Model):
@@ -44,6 +48,10 @@ class RentItem(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('rent')
 
 class RentItemCart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rent_cart_items')
