@@ -2,20 +2,20 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-temp")
 
-DEBUG = False
+DEBUG = True
+    
 
 ALLOWED_HOSTS = [
     "camxlk.com",
     "www.camxlk.com",
     ".onrender.com",
-    "localhost",
-    "127.0.0.1",
 ]
 
 INSTALLED_APPS = [
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
 ]
 
-SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -97,10 +97,14 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SITE_ID = 1
+SITE_DOMAIN = "camxlk.com"
 CSRF_TRUSTED_ORIGINS = [
     "https://camxlk.com",
     "https://www.camxlk.com",
 ]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
