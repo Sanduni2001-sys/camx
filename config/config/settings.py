@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'axes',
 
     'shop',
+    'django.contrib.sitemaps',
 ]
 
 SITE_ID = 1
