@@ -1,5 +1,6 @@
-import os
-from pathlib import Path
+from pathlib import os
+
+import Path
 from dotenv import load_dotenv
 
 
@@ -32,7 +33,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
-    'axes',
+    
 
     'shop',
     'django.contrib.sitemaps',
@@ -52,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'allauth.account.middleware.AccountMiddleware',
-    'axes.middleware.AxesMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'config.urls'
