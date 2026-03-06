@@ -307,16 +307,22 @@ from django.http import JsonResponse
 @login_required
 def order_history_view(request):
     # user එකේ orders ගන්න
-    orders = Order.objects.filter(user=request.user).order_by('-created_at')
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')  
     return render(request, 'shop/order_history.html', {'orders': orders})
 
-def force_create_admin(request):
-    User.objects.filter(username="admin").delete()
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.conf import settings
 
+def reset_admin(request):
+    # පරණ admin delete කරන්න
+    User.objects.filter(username=settings.ADMIN_USERNAME).delete()
+
+    # නව superuser create කරන්න
     User.objects.create_superuser(
-        username="admin",
-        email="admin@camxlk.com",
-        password="Camx@2026"
+        username=settings.ADMIN_USERNAME,
+        email=settings.ADMIN_EMAIL,
+        password=settings.ADMIN_PASSWORD
     )
 
-    return HttpResponse("ADMIN HARD RESET DONE")
+    return HttpResponse("ADMIN RESET DONE")

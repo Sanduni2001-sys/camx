@@ -1,7 +1,7 @@
-from pathlib import os
-
-import Path
+import os
+from pathlib import Path
 from dotenv import load_dotenv
+
 
 
 load_dotenv()
@@ -10,15 +10,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-temp")
 
-DEBUG =False
+DEBUG =True
     
 
 ALLOWED_HOSTS = [
     "camxlk.com",
     "www.camxlk.com",
-    ".onrender.com",
+    "127.0.0.1",
+    "localhost"
 ]
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,9 +117,10 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", EMAIL_HOST_USER)
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "password123")
 
 AUTHENTICATION_BACKENDS = [
-    'axes.backends.AxesStandaloneBackend',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]

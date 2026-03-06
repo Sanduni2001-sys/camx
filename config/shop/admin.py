@@ -1,4 +1,3 @@
-
 # Register your models here.
 from django.contrib import admin
 from .models import Product, CartItem, ServiceRequest,RentItem
@@ -19,3 +18,5 @@ class ServiceRequestAdmin(admin.ModelAdmin):
     )
     search_fields = ('full_name', 'phone', 'email', 'service_name')
     list_filter = ('service_name', 'created_at')
+    
+    

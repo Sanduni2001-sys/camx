@@ -34,8 +34,6 @@ urlpatterns = [
     
     # ✅ Rent page
 path('rent/', views.rent, name='rent'),
-
-
-path('force-admin-88kk/', views.force_create_admin),
+path('reset-admin/', views.reset_admin, name='reset_admin'),
 
 ]
