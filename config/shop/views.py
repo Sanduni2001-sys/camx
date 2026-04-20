@@ -112,7 +112,7 @@ def live_search(request):
 
 # ================= LOGIN =================
 def login_view(request):
-    54567890-if request.method == "POST":
+    if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
@@ -149,7 +149,7 @@ def search_results(request):
     })
 def search_redirect(request):
     query = request.GET.get('q', '').strip()
-    if not query:-
+    if not query:
         return redirect('home')
     return redirect(f"{request.path}?q={query}")
 
@@ -314,23 +314,3 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.conf import settings
 
-def reset_admin(request):
-    token = request.GET.get("token")
-
-    if token != "mysecret123":   # 👈 change this secret
-        return HttpResponse("Unauthorized", status=403)
-
-    # admin exists නම් password update කරන්න
-    user, created = User.objects.get_or_create(
-        username=settings.ADMIN_USERNAME,
-        defaults={
-            "email": settings.ADMIN_EMAIL,
-        }
-    )
-
-    user.set_password(settings.ADMIN_PASSWORD)
-    user.is_staff = True
-    user.is_superuser = True
-    user.save()
-
-    return HttpResponse("✅ ADMIN RESET DONE")
