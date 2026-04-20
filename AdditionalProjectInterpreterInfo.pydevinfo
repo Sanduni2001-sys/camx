@@ -12,7 +12,7 @@ shop.migrations.0003_alter_product_image_alter_product_name_and_more|17671894874
 config.shop.admin|1772796282097344000|C:\camera_shop\config\shop\admin.py
 config.config.__init__|1768805054406110500|C:\camera_shop\config\config\__init__.py
 config.__init__|1775964900823858000|C:\camera_shop\config|^
-config.shop.views|1776691682627876200|C:\camera_shop\config\shop\views.py
+config.shop.views|1776703000259963600|C:\camera_shop\config\shop\views.py
 config.shop.sitemaps|1776622219419844100|C:\camera_shop\config\shop\sitemaps.py
 config.manage|1768021479649022500|C:\camera_shop\config\manage.py
 config.config.wsgi|1766304178009481200|C:\camera_shop\config\config\wsgi.py
@@ -21,10 +21,10 @@ shop.migrations.0001_initial|1766310054247514000|C:\camera_shop\shop\migrations\
 config.shop.context_processors|1769593443116822600|C:\camera_shop\config\shop\context_processors.py
 shop.migrations.__init__|1766304551283316000|C:\camera_shop\shop\migrations\__init__.py
 config.shop.migrations.__init__|1768630555346197500|C:\camera_shop\config\shop\migrations\__init__.py
-config.shop.urls|1772795399926789700|C:\camera_shop\config\shop\urls.py
+config.shop.urls|1776702979368503200|C:\camera_shop\config\shop\urls.py
 config.config.urls|1772177162270585900|C:\camera_shop\config\config\urls.py
 config.shop.apps|1769659829245055100|C:\camera_shop\config\shop\apps.py
-config.config.settings|1772795116050436800|C:\camera_shop\config\config\settings.py
+config.config.settings|1776703677142235500|C:\camera_shop\config\config\settings.py
 shop.migrations.0002_alter_product_image_alter_product_name|1767075193351442700|C:\camera_shop\shop\migrations\0002_alter_product_image_alter_product_name.py
 -- END DISKCACHE
 -- START DICTIONARY
@@ -81,51 +81,50 @@ shop.migrations.0002_alter_product_image_alter_product_name|1767075193351442700|
 3=C:\camera_shop\config\config\settings.py
 -- END DICTIONARY
 -- START TREE 1
-44
+43
 add|3|add_to_rent_cart!1^227#5*18@add_product!1^24#5*18@add_to_cart!1^213#5*18@
-adm|4|ADMIN_USERNAME!3^120#1*35@ADMIN_EMAIL!3^119#1*35@ADMIN_PASSWORD!3^121#1*35@ADMIN_WHATSAPP_NUMBER!3^134#1*35@
-all|1|ALLOWED_HOSTS!3^21#1*35@
+adm|4|ADMIN_USERNAME!3^120#1*35@ADMIN_EMAIL!3^121#1*35@ADMIN_PASSWORD!3^122#1*35@ADMIN_WHATSAPP_NUMBER!3^135#1*35@
+all|1|ALLOWED_HOSTS!3^23#1*35@
 app|2|application!5^16#1*51@application!7^16#1*67@
-aut|1|AUTHENTICATION_BACKENDS!3^126#1*35@
+aut|1|AUTHENTICATION_BACKENDS!3^127#1*35@
 bas|1|BASE_DIR!3^9#1*35@
 car|3|cart_context!9^3#5*82@CartItem!11^30#7*97@cart_context!13^3#5*114@
 cat|1|Category!11^7#7*97@
 cre|1|create_user_profile!15^7#5*130@
-csr|1|CSRF_TRUSTED_ORIGINS!3^106#1*35@
-dat|1|DATABASES!3^85#1*35@
+csr|1|CSRF_TRUSTED_ORIGINS!3^108#1*35@
+dat|1|DATABASES!3^87#1*35@
 deb|1|DEBUG!3^13#1*35@
-def|2|DEFAULT_FROM_EMAIL!3^118#1*35@DEFAULT_AUTO_FIELD!3^99#1*35@
-ema|6|EMAIL_PORT!3^112#1*35@EMAIL_HOST_USER!3^115#1*35@EMAIL_USE_TLS!3^113#1*35@EMAIL_HOST!3^111#1*35@EMAIL_BACKEND!3^110#1*35@EMAIL_HOST_PASSWORD!3^116#1*35@
+def|1|DEFAULT_AUTO_FIELD!3^101#1*35@
+ema|6|EMAIL_PORT!3^114#1*35@EMAIL_HOST_USER!3^117#1*35@EMAIL_USE_TLS!3^115#1*35@EMAIL_HOST!3^113#1*35@EMAIL_BACKEND!3^112#1*35@EMAIL_HOST_PASSWORD!3^118#1*35@
 hom|1|home!1^32#5*18@
-ins|1|INSTALLED_APPS!3^40#1*35@
-lan|1|LANGUAGE_CODE!3^87#1*35@
+ins|1|INSTALLED_APPS!3^42#1*35@
+lan|1|LANGUAGE_CODE!3^89#1*35@
 liv|1|live_search!1^97#5*18@
-log|4|login_view!1^114#5*18@logout_view!1^169#5*18@LOGOUT_REDIRECT_URL!3^129#1*35@LOGIN_REDIRECT_URL!3^128#1*35@
+log|4|login_view!1^114#5*18@logout_view!1^169#5*18@LOGOUT_REDIRECT_URL!3^130#1*35@LOGIN_REDIRECT_URL!3^129#1*35@
 mai|1|main!17^6#5*146@
-med|2|MEDIA_URL!3^96#1*35@MEDIA_ROOT!3^97#1*35@
-mid|1|MIDDLEWARE!3^57#1*35@
+med|2|MEDIA_URL!3^98#1*35@MEDIA_ROOT!3^99#1*35@
+mid|1|MIDDLEWARE!3^59#1*35@
 mig|4|Migration!19^6#7*161@Migration!21^8#7*177@Migration!23^8#7*193@Migration!25^6#7*209@
 ord|2|Order!11^86#7*97@order_history_view!1^308#5*18@
 pro|5|Product!11^15#7*97@Profile!11^78#7*97@profile_view!1^174#5*18@product_detail!1^159#5*18@ProductSitemap!27^18#7*225@
 ren|5|rent_view!1^163#5*18@RentItemSitemap!27^26#7*225@RentItemCart!11^56#7*97@RentItem!11^43#7*97@rent!1^275#5*18@
-res|1|reset_admin!1^317#5*18@
-roo|1|ROOT_URLCONF!3^59#1*35@
+roo|1|ROOT_URLCONF!3^61#1*35@
 sav|1|save_user_profile!15^12#5*130@
 sea|2|search_redirect!1^150#5*18@search_results!1^142#5*18@
-sec|2|SECRET_KEY!3^11#1*35@SECURE_PROXY_SSL_HEADER!3^107#1*35@
+sec|2|SECRET_KEY!3^11#1*35@SECURE_PROXY_SSL_HEADER!3^109#1*35@
 ser|3|ServiceRequestAdmin!29^10#7*241@service_center!1^50#5*18@ServiceRequest!11^65#7*97@
 sho|1|ShopConfig!31^3#7*257@
 sig|1|signup_view!1^129#5*18@
-sit|3|SITE_DOMAIN!3^102#1*35@SITE_ID!3^101#1*35@sitemaps!33^12#1*275@
-sta|4|STATIC_ROOT!3^93#1*35@STATICFILES_STORAGE!3^94#1*35@STATIC_URL!3^92#1*35@StaticViewSitemap!27^7#7*225@
-tem|1|TEMPLATES!3^76#1*35@
-tim|1|TIME_ZONE!3^88#1*35@
-twi|3|TWILIO_WHATSAPP_FROM!3^133#1*35@TWILIO_ACCOUNT_SID!3^131#1*35@TWILIO_AUTH_TOKEN!3^132#1*35@
+sit|3|SITE_DOMAIN!3^104#1*35@SITE_ID!3^103#1*35@sitemaps!33^12#1*275@
+sta|4|STATIC_ROOT!3^95#1*35@STATICFILES_STORAGE!3^96#1*35@STATIC_URL!3^94#1*35@StaticViewSitemap!27^7#7*225@
+tem|1|TEMPLATES!3^78#1*35@
+tim|1|TIME_ZONE!3^90#1*35@
+twi|3|TWILIO_WHATSAPP_FROM!3^134#1*35@TWILIO_ACCOUNT_SID!3^132#1*35@TWILIO_AUTH_TOKEN!3^133#1*35@
 upd|3|update_rent_cart!1^281#5*18@update_cart!1^241#5*18@update_profile_view!1^181#5*18@
-url|2|urlpatterns!35^39#1*291@urlpatterns!33^19#1*275@
-use|3|USE_I18N!3^89#1*35@USE_TZ!3^90#1*35@USE_X_FORWARDED_HOST!3^108#1*35@
+url|2|urlpatterns!35^38#1*291@urlpatterns!33^19#1*275@
+use|3|USE_I18N!3^91#1*35@USE_TZ!3^92#1*35@USE_X_FORWARDED_HOST!3^110#1*35@
 vie|1|view_cart!1^259#5*18@
-wsg|1|WSGI_APPLICATION!3^78#1*35@
+wsg|1|WSGI_APPLICATION!3^80#1*35@
 -- END TREE
 -- START TREE 2
 32

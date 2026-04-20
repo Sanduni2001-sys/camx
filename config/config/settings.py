@@ -18,6 +18,8 @@ ALLOWED_HOSTS = [
     "www.camxlk.com",
     "127.0.0.1",
     "localhost"
+    "camx-g9h8.onrender.com",
+
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',

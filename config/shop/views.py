@@ -314,3 +314,20 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.conf import settings
 
+def reset_admin(request):
+    token = request.GET.get("token")
+
+    if token != "mysecret123":
+        return HttpResponse("Unauthorized", status=403)
+
+    try:
+        user = User.objects.get(username=settings.ADMIN_USERNAME)
+    except User.DoesNotExist:
+        user = User(username=settings.ADMIN_USERNAME, email=settings.ADMIN_EMAIL)
+
+    user.set_password(settings.ADMIN_PASSWORD)
+    user.is_staff = True
+    user.is_superuser = True
+    user.save()
+
+    return HttpResponse("✅ ADMIN RESET DONE")
