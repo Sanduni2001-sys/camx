@@ -2,6 +2,8 @@ from django.contrib.sitemaps import Sitemap
 from .models import Product, RentItem
 from django.urls import reverse
 
+
+
 class StaticViewSitemap(Sitemap):
     priority = 1.0
     changefreq = "daily"
