@@ -1,7 +1,6 @@
 from django.contrib.sitemaps import Sitemap
-from .models import Product, RentItem
 from django.urls import reverse
-
+from .models import Product, RentItem
 
 
 class StaticViewSitemap(Sitemap):

@@ -15,7 +15,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls')),
     path('accounts/', include('allauth.urls')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemaps'),
 ]
 
 if settings.DEBUG:

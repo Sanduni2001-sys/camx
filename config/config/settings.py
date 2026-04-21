@@ -29,14 +29,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+    'django.contrib.sitemaps',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
     
-
+    'django.contrib.sites',
     'shop',
     'django.contrib.sitemaps',
 ]
@@ -101,6 +101,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
+SITE_URL = "https://camxlk.com"
 SITE_DOMAIN = "camxlk.com"
 CSRF_TRUSTED_ORIGINS = [
     "https://camxlk.com",
