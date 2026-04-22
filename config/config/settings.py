@@ -42,6 +42,9 @@ INSTALLED_APPS = [
 
     
     
+
+    'shop.apps.ShopConfig',
+    
     'shop',
 ]
 
