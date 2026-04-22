@@ -7,11 +7,17 @@ class ShopConfig(AppConfig):
     def ready(self):
         import os
         from django.contrib.auth.models import User
+        from django.conf import settings
 
-        if os.environ.get("CREATE_SUPERUSER") == "true":
-            if not User.objects.filter(username="admin").exists():
+        if os.environ.get("CREATE_SUPERUSER", "false").lower() == "true":
+
+            username = settings.ADMIN_USERNAME
+            email = settings.ADMIN_EMAIL
+            password = settings.ADMIN_PASSWORD
+
+            if not User.objects.filter(username=username).exists():
                 User.objects.create_superuser(
-                    username="admin",
-                    email="admin@example.com",
-                    password=os.environ.get("ADMIN_PASSWORD", "changeme123")
+                    username=username,
+                    email=email,
+                    password=password
                 )
