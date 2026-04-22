@@ -6,12 +6,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-temp")
 
 DEBUG =True
     
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
 
 ALLOWED_HOSTS = [
     "camxlk.com",
