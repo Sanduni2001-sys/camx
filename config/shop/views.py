@@ -113,8 +113,8 @@ def live_search(request):
 # ================= LOGIN =================
 def login_view(request):
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+        username = request.POST.get("admin")
+        password = request.POST.get("Admin123456")
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
