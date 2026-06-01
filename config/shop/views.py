@@ -113,17 +113,24 @@ def live_search(request):
 # ================= LOGIN =================
 def login_view(request):
     if request.method == "POST":
-        username = request.POST.get("admin")
-        password = request.POST.get("Admin123456")
-        user = authenticate(request, username=username, password=password)
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password
+        )
+
         if user:
             login(request, user)
             return redirect('home')
+
         return render(request, 'shop/login.html', {
             'error': 'Invalid username or password'
         })
-    return render(request, 'shop/login.html')
 
+    return render(request, 'shop/login.html')
 
 # ================= SIGNUP =================
 def signup_view(request):

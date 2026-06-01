@@ -14,9 +14,9 @@ SECRET_KEY = os.getenv("SECRET_KEY", "unsafe-temp")
 
 DEBUG =True
     
-ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
-ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "Adminbro2026"
+ADMIN_EMAIL = "nimeshisandu8@gmail.com"
 
 ALLOWED_HOSTS = [
     "camxlk.com",
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
     
@@ -125,9 +124,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
-ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
-ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
