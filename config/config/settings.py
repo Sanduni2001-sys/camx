@@ -22,7 +22,7 @@ ALLOWED_HOSTS = [
     "camxlk.com",
     "www.camxlk.com",
     "127.0.0.1",
-    "localhost"
+    "localhost",
     "camx-g9h8.onrender.com",
 
 ]
@@ -113,7 +113,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://camxlk.com",
     "https://www.camxlk.com",
 ]
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 USE_X_FORWARDED_HOST = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
