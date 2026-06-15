@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount.providers.google',
+    
 
     
     

@@ -12,7 +12,7 @@ shop.migrations.0003_alter_product_image_alter_product_name_and_more|17671894874
 config.shop.admin|1772796282097344000|C:\camera_shop\config\shop\admin.py
 config.config.__init__|1768805054406110500|C:\camera_shop\config\config\__init__.py
 config.__init__|1775964900823858000|C:\camera_shop\config|^
-config.shop.views|1780289900211186900|C:\camera_shop\config\shop\views.py
+config.shop.views|1780291244906027400|C:\camera_shop\config\shop\views.py
 config.shop.sitemaps|1776787389843710400|C:\camera_shop\config\shop\sitemaps.py
 config.manage|1768021479649022500|C:\camera_shop\config\manage.py
 config.config.wsgi|1766304178009481200|C:\camera_shop\config\config\wsgi.py
@@ -27,7 +27,7 @@ config.shop.urls|1776704205971990000|C:\camera_shop\config\shop\urls.py
 config.shop.management.__init__|1776890358640715500|C:\camera_shop\config\shop\management|^
 config.config.urls|1776786462165628600|C:\camera_shop\config\config\urls.py
 config.shop.apps|1776888776926682800|C:\camera_shop\config\shop\apps.py
-config.config.settings|1780289919197206500|C:\camera_shop\config\config\settings.py
+config.config.settings|1780291235858218400|C:\camera_shop\config\config\settings.py
 shop.migrations.0002_alter_product_image_alter_product_name|1767075193351442700|C:\camera_shop\shop\migrations\0002_alter_product_image_alter_product_name.py
 -- END DISKCACHE
 -- START DICTIONARY
